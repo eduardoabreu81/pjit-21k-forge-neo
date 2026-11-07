@@ -1,0 +1,14 @@
+{
+  "_class_name": "PJiTTransformer",
+  "_diffusers_version": "0.38.0",
+  "dim": 2944,
+  "num_heads": 23,
+  "num_layers": 22,
+  "refiner_blocks": 2,
+  "ffn_hidden": 5376,
+  "refiner_ffn_hidden": 2816,
+  "adaln_rank": 256,
+  "text_dim": 7680,
+  "bottleneck_dim": 1024,
+  "freq_dim": 256
+}

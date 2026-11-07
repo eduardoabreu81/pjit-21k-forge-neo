@@ -1,0 +1,30 @@
+P-JiT 21K for Forge Neo
+Copyright 2026 eduardoabreu81
+
+This extension is licensed under the GNU Affero General Public License v3.0 (see LICENSE).
+
+It contains code ported from projects licensed under the Apache License, Version 2.0
+(see LICENSE-APACHE); their notices follow.
+
+forge_pjit/native/transformer.py, forge_pjit/native/guidance.py, forge_pjit/native/scheduler.py and
+forge_pjit/native/text_engine.py are adapted from P-JiT 21K's reference inference code
+(https://github.com/Linum-AI/pjit-21k, commit 9540393, pjit_21k/model.py, sampler.py and text_encoder.py),
+Copyright 2026 Linum Inc., Apache License 2.0. These files were modified to run inside Forge Neo.
+tests/reference/pjit_21k/ holds attention.py, config.py, model.py, noise.py and sampler.py of the same commit,
+unmodified, used only by the tests.
+
+forge_pjit/native/qwen35.py is the Qwen3.5 language tower of this author's MOSS-Image extension, ported from
+ComfyUI (https://github.com/comfyanonymous/ComfyUI, commit a09d037, comfy/text_encoders/qwen35.py, GNU General
+Public License v3.0) with the numerics of transformers (https://github.com/huggingface/transformers, commit
+09281b8, modeling_qwen3_5.py, Apache License 2.0). tests/reference/qwen35_hf.py comes from the same transformers
+file and is used only by the tests.
+
+forge_pjit/native/huggingface/pjit-21k/tokenizer/tokenizer.json is the tokenizer of Qwen3.5-4B
+(https://huggingface.co/Qwen/Qwen3.5-4B), Alibaba Cloud, Apache License 2.0.
+
+Adaptive projected guidance follows Sadat et al., "Eliminating Oversaturation and Artifacts of High Guidance
+Scales in Diffusion Models", ICLR 2025 (https://arxiv.org/abs/2410.02416).
+
+The weights are not part of this extension. P-JiT 21K is released by Linum Inc. under the Apache License 2.0
+(https://huggingface.co/Linum-AI/pjit-21k). The INT8 ConvRot files are converted by PedroMarinhoDev, Apache
+License 2.0 (https://huggingface.co/PedroMarinhoDev/P-JiT-21K-ComfyUI).

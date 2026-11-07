@@ -1,0 +1,25 @@
+{
+  "architectures": [
+    "Qwen3_5Model"
+  ],
+  "model_type": "qwen3_5_text",
+  "vocab_size": 248320,
+  "hidden_size": 2560,
+  "intermediate_size": 9216,
+  "num_hidden_layers": 32,
+  "full_attention_interval": 4,
+  "num_attention_heads": 16,
+  "num_key_value_heads": 4,
+  "head_dim": 256,
+  "partial_rotary_factor": 0.25,
+  "rope_theta": 10000000,
+  "linear_num_key_heads": 16,
+  "linear_num_value_heads": 32,
+  "linear_key_head_dim": 128,
+  "linear_value_head_dim": 128,
+  "linear_conv_kernel_dim": 4,
+  "rms_norm_eps": 1e-06,
+  "hidden_act": "silu",
+  "eos_token_id": 248044,
+  "torch_dtype": "bfloat16"
+}
