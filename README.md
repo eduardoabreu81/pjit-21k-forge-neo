@@ -41,6 +41,7 @@ Generate with **[P-JiT 21K](https://www.linum.ai/field-notes/pjit-21k)** by Linu
 - **No VAE to pick** - the model works in pixels, so only the text encoder goes under **VAE / Text Encoder**.
 - **Linum's sampling** - adaptive projected guidance on the CFG Scale slider, and a **P-JiT** schedule.
 - **pjit UI preset** - ready to generate.
+- **Linum's samples, seed for seed** - an optional setting draws the noise as Linum's GPU does, for the same pictures it published.
 
 ---
 
@@ -140,7 +141,8 @@ Linum's own tool rewrites short prompts through a paid online service. This exte
 - Captions are cut at 256 tokens - the counter by the prompt box shows how close you are
 - Lower CFG gives softer pictures; 15 is what the model was tuned on
 - Sides that are not a multiple of 32 work, but stick to the sizes above for the best results
-- Seeds will not reproduce the sample images on Linum's page: their code draws its noise as a specific data-center GPU does, and Forge Neo draws its own
+- To get the pictures Linum published for its seeds, turn on **[P-JiT] Draw the noise as Linum's GPU does** under **Settings → Stable Diffusion**, and use their captions and sizes. Off, Forge Neo draws its own noise and a seed gives another picture
+- Expect to try a few seeds: Linum's samples are its own picks, and many pictures of the same caption will not reach them
 - Before uninstalling, switch the UI preset to another one
 
 ---

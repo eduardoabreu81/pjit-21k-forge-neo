@@ -99,6 +99,22 @@ def _hook_preview() -> None:
     sd_samplers_common.samples_to_images_tensor = samples_to_images_tensor
 
 
+def _hook_noise() -> None:
+    # upstream's seeded noise when the setting is on (settings.py); the first draw of a picture is all Euler ever asks for
+    from modules import rng, shared
+
+    from . import noise, settings
+
+    original = rng.ImageRNG.first
+
+    def first(self):
+        if getattr(shared.sd_model, "is_pjit", False) and settings.linum_noise():
+            return torch.stack([noise.randn(seed, self.shape) for seed in self.seeds]).to(shared.device)
+        return original(self)
+
+    rng.ImageRNG.first = first
+
+
 def _register_scheduler() -> None:
     from modules import sd_schedulers, shared
 
@@ -128,6 +144,14 @@ def apply() -> None:
     _hook_components()
     _hook_text_encoder_file()
     _hook_preview()
+    _hook_noise()
+    try:
+        from . import settings
+
+        settings.register()
+    except Exception as e:
+        # the DiT and the noise fall back to the setting's default
+        logger.warning(f"[P-JiT] could not add its setting: {e}")
     try:
         _register_scheduler()
     except Exception as e:

@@ -26,8 +26,10 @@ class PJiT(BASE):
     # Forge sizes a pass by the state's area, and here that is the picture's, 256 times a 16x latent's. FLUX 3's factor
     # (14.6) over 256, for the same work per token, times the 1,280 tokens at 1024px over the 4,096 + text of FLUX 3
     memory_usage_factor = 0.02
-    # fp16 is allowed for GPUs without bfloat16 (RTX 20 and older): the DiT keeps its residual stream in float32
-    supported_inference_dtypes = [torch.bfloat16, torch.float16, torch.float32]
+    # as Forge's own MOSS-Image lists them: a GPU without bfloat16 (RTX 20 and older) falls back to float32, and the Turing
+    # FP16 extension, when installed and enabled, turns that fallback into float16. Listing float16 here would take that
+    # choice away from its setting
+    supported_inference_dtypes = [torch.bfloat16, torch.float32]
 
     unet_extra_config = {}
     latent_format = PixelLatentFormat

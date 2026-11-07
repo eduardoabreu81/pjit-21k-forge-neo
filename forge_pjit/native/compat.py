@@ -21,6 +21,7 @@ REQUIRED = {
     "backend.patcher.vae": ("VAE",),
     "backend.text_processing._comfy": ("SDClipModel", "SDTokenizer", "INF"),
     "backend.text_processing.emphasis": ("EmphasisNone", "uses_emphasis"),
+    "modules.rng": ("ImageRNG",),
     "modules.sd_samplers_common": ("samples_to_images_tensor",),
     "modules.sd_schedulers": ("Scheduler", "all_schedulers", "schedulers", "schedulers_map"),
     "modules_forge.presets": ("PresetArch", "SAMPLERS", "SCHEDULERS", "STEPS", "CFG", "register"),
