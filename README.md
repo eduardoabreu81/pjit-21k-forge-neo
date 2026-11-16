@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/banner.jpg" alt="P-JiT 21K for Forge Neo banner"/>
+</p>
+
 # 🖼️ P-JiT 21K for Forge Neo
 
 <div align="center">
